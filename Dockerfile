@@ -1,7 +1,9 @@
 FROM ubuntu:22.04
+ADD sources.list /etc/apt/
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN rm -rf /var/lib/apt/lists/*
+
 RUN apt-get -y update && apt-get install -y \
     libjansson-dev \
     libnice-dev \
@@ -119,6 +121,9 @@ RUN apt update -y && sudo apt install  -y ffmpeg && ffmpeg -version
 # nginx
 RUN apt-get update -y && apt-get install -y nginx
 COPY nginx.conf /etc/nginx/nginx.conf
+
+# net-tool
+RUN apt-get update -y && apt-get install -y net-tools
 
 RUN apt-get clean && \
 	rm -rf /var/lib/apt/lists/*

@@ -125,6 +125,8 @@ COPY nginx.conf /etc/nginx/nginx.conf
 # net-tool
 RUN apt-get update -y && apt-get install -y net-tools
 
+RUN apt-get update -y && apt-get install -y iputils-ping
+
 RUN apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
 

@@ -5,10 +5,10 @@ services:
   # janus-gateway
   #
   janus-gateway:
-    image: zll-rtc/janus:20231023
+    image: zll-rtc/janus:20231109
     container_name: janus
     ports:
-      - "8086:8086"
+      - "80:80"
       - "8088:8088"
       - "8188:8188"    
     volumes:
@@ -17,9 +17,9 @@ services:
       - "./conf/janus.eventhandler.sampleevh.jcfg:/usr/local/etc/janus/janus.eventhandler.sampleevh.jcfg"
     restart: always
 
-  whip-server:
-    image: zll-rtc/whip-server:20231023
-    container_name: whip
-    ports:
-      - "7080:7080" 
-    restart: always    
+  #whip-server:
+  #  image: zll-rtc/whip-server:20231023
+  #  container_name: whip
+  #  ports:
+  #    - "7080:7080" 
+  #  restart: always    
